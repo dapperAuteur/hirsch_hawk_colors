@@ -19,6 +19,12 @@ class StaticPagesControllerTest < ActionController::TestCase
     assert_select 'title', 'About | Welcome To Hirsch Hawk Colors'
   end
   
+  test "should get contact" do
+    get :contact
+    assert_response :success
+    assert_select 'title', "Contact | Welcome To Hirsch Hawk Colors"
+  end
+  
   # test "should get events" do
   #   get :about
 

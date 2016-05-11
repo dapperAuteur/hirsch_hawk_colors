@@ -1,9 +1,9 @@
 <div class="center jumbotron">
-    <% provide(:title, "Home") %>
+    <% provide(:title, "Users") %>
     <% provide(:app_title, "Hirsch Hawk Colors") %>
     <h1><%= yield(:title) %></h1>
     <h2>
-        This is the <%= yield(:app_title) %> Home Page.
+        This is the <%= yield(:app_title) %> User Page.
     </h2>
     <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
