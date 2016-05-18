@@ -4,3 +4,8 @@ aweful:
     name: aweful Brown
     email: aweful@aweful.com
     password_digest: <%= User.digest('password') %>
+    
+dapper:
+    name: dapper Auteur
+    email: dapper@aweful.com
+    password_digest: <%= User.digest('password') %>
