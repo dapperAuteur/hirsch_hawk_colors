@@ -1,11 +1,29 @@
-# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 aweful:
     name: aweful Brown
-    email: aweful@aweful.com
+    email: aweful@example.com
     password_digest: <%= User.digest('password') %>
-    
+    admin: true
+
 dapper:
     name: dapper Auteur
-    email: dapper@aweful.com
+    email: dapper@example.com
     password_digest: <%= User.digest('password') %>
+    
+commish:
+  name: The Commish
+  email: hands@example.gov
+  password_digest: <%= User.digest('password') %>
+
+curb:
+  name: Curb Appeall
+  email: boss@example.gov
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name:  <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
