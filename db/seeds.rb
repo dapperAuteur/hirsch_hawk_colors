@@ -11,6 +11,8 @@ User.create!(name:      "Example User",
              password:                  "foobar",
              password_confirmation:     "foobar",
              admin: true,
+             staff: true,
+             teacher: true,
              activated: true,
              activated_at: Time.zone.now)
              
@@ -22,6 +24,7 @@ User.create!(name:      "Example User",
                  email: email,
                  password:              password,
                  password_confirmation: password,
+                 student: true,
                  activated: true,
                  activated_at: Time.zone.now)
 end
