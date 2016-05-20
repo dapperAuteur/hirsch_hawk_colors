@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520041356) do
+ActiveRecord::Schema.define(version: 20160520113855) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -33,8 +33,14 @@ ActiveRecord::Schema.define(version: 20160520041356) do
     t.string   "grade"
     t.string   "my_teacher"
     t.text     "my_allergies"
+    t.boolean  "current_student",   default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["grade"], name: "index_users_on_grade"
+  add_index "users", ["my_allergies"], name: "index_users_on_my_allergies"
+  add_index "users", ["my_teacher"], name: "index_users_on_my_teacher"
+  add_index "users", ["staff"], name: "index_users_on_staff"
+  add_index "users", ["teacher"], name: "index_users_on_teacher"
 
 end
