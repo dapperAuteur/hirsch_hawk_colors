@@ -5,11 +5,13 @@ class Student < ActiveRecord::Base
     validates :email_address, presence: true, length: { maximum: 255 },
                         format: { with: VALID_EMAIL_REGEX },
                         uniqueness: { case_sensitive: false }
-    #attr_accessible :fname, lname
+    attr_accessor :fname, :lname, :my_teacher, :grade, :email_address, :gender, :age, :images, :current_student, :my_allergies
     
     def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|
-            Student.create! row.to_hash
+            student = find_by_id(row["id"]) || new
+            student.attributes = row.to_hash.slice(*row.to_hash.keys)
+            student.save!
         end
     end
     
