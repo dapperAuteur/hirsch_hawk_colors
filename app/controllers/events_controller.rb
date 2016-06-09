@@ -6,8 +6,14 @@ class EventsController < ApplicationController
     end
     
     def create
-        puts "What's the name of the event?"
-        event.name = $stdin.gets.chomp
+    end
+    
+    def index
+        @events = Event.paginate(page: params[:page])
+    end
+    
+    def show
+        @event = Event.find(params[:id])
     end
     
     private
@@ -18,6 +24,10 @@ class EventsController < ApplicationController
                 flash[:danger] = "Please log in."
                 redirect_to login_url
             end
+        end
+        
+        def event_params
+            params.require(:event).permit(:name, :classroom, :meal)
         end
         
                 
