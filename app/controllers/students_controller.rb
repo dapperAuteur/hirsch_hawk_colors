@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
-  before_action :logged_in_user
+  before_action :logged_in_user,  only: [:index, :edit, :update, :destroy]
+  #before_action :correct_user,    only: [:edit, :update]
   before_action :admin_user,      only: :destroy
   
   def index
@@ -20,6 +21,27 @@ class StudentsController < ApplicationController
   def import
     Student.import(params[:file])
     redirect_to root_url, notice: "Students imported."
+  end
+  
+  def edit
+    @student = Student.find(params[:id])
+  end
+  
+  def update
+    @student = Student.find(params[:id])
+    if @student.update_attributes(student_params
+    )
+    flash[:success] = "Student updated"
+    redirect_to @student
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    Student.find(params[:id]).destroy
+    flash[:success] = "Student deleted"
+    redirect_to students_url
   end
   
   private

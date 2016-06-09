@@ -1,0 +1,30 @@
+<%= form_for(@student) do |f| %>
+    <%#= render 'shared/error_messages' %>
+    
+    <%= f.label :fname %>
+    <%= f.text_field :fname, class: 'form_control' %>
+    
+    <%= f.label :lname %>
+    <%= f.text_field :lname, class: 'form_control' %>
+    
+    <%= f.label :my_teacher %>
+    <%= f.text_field :my_teacher, class: 'form_control' %>
+    
+    <%= f.label :grade %>
+    <%= f.text_field :grade, class: 'form_control' %>
+    
+    <%= f.label :student_id %>
+    <%= f.text_field :student_id, class: 'form_control' %>
+    
+    <%= f.label :email_address %>
+    <%= f.email_field :email_address, class: 'form_control' %>
+    
+    <%= f.label :dob %>
+    <%= f.date_field :dob, class: 'form_control' %>
+    
+    <%= f.label :my_allergies %>
+    <%= f.text_field :my_allergies, class: 'form_control' %>
+    
+    
+    <%= f.submit "Save changes", class: "btn btn-primary" %>
+<% end %>

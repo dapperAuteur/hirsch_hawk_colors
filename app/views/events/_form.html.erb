@@ -1,0 +1,14 @@
+<%= form_for(@event) do |f| %>
+    <%#= render 'shared/error_messages' %>
+    
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form_control' %>
+    
+    <%= f.label :classroom %>
+    <%= f.check_box :classroom, class: 'form_control' %>
+    
+    <%= f.label :meal %>
+    <%= f.check_box :meal, class: 'form_control' %>
+    
+    <%= f.submit "Save changes", class: "btn btn-primary" %>
+<% end %>
