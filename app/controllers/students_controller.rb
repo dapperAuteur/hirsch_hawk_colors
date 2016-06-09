@@ -2,8 +2,8 @@ class StudentsController < ApplicationController
   before_action :logged_in_user
   before_action :admin_user,      only: :destroy
   
-  def present
-    @students = Student.all
+  def index
+    @students = Student.paginate(page: params[:page])
     #debugger
   #   @students = Student.order(:fname)
   #   respond_to do |format|
@@ -11,6 +11,7 @@ class StudentsController < ApplicationController
   #     format.xls # { send_data @products.to_csv(col_sep: "\t") }
     
   end
+  
   
   def show
     @student = Student.find(params[:id])
@@ -30,5 +31,9 @@ class StudentsController < ApplicationController
         flash[:danger] = "Please log in."
         redirect_to login_url
       end
+    end
+    
+    def student_params
+      params.require(:student).permit(:fname, :lname, :my_teacher, :grade, :student_id)
     end
 end

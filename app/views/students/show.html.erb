@@ -3,11 +3,37 @@
     <aside class="col-md-4">
         <section class="user_info">
            <h1>
-               <%#= gravatar_for @student %>
                <%= @student.fname %>
+               <%= @student.lname %>
            </h1>
         </section>
     </aside>
 </div>
-            
-<%= @student.fname %>, <%= @student.my_teacher %>
+<div class="table table-striped table-bordered table-hover">
+    <table>
+      <thead class="thead">
+        <tr>
+          <th>Image</th>
+          <th>My Allergies</th>
+          <th>My Teacher</th>
+          <th>Grade</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+    
+      <tr>
+        <td><%= @student.images %></td>
+        <td><%= @student.my_allergies %></td>
+        <td><%= @student.my_teacher %></td>
+        <td><%= @student.grade %></td>
+<%
+=begin %>
+        <td><%#= link_to 'Show', student %></td>
+        <td><%#= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%#= link_to 'Destroy', student, method: :delete,
+                                         data: { confirm: 'Are you sure?' } %></td>
+<%                                         
+=end %>                                         
+      </tr>
+    </table>
+</div>

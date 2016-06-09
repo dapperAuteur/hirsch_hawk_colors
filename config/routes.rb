@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root to: 'students#index'
 
   get 'password_resets/new'
 
@@ -33,7 +34,14 @@ Rails.application.routes.draw do
     collection { post :import }
   end
   
-  root to: 'students#present'
+  #get 'students#index', to:   'students#present'
+  
+  resources             :event_attendance_record
+  # get 'event_attendance_record/index'
+
+  # get 'event_attendance_record/show'
+
+  # get 'event_attendance_record/edit'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

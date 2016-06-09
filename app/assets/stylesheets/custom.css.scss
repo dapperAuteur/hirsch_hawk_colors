@@ -203,3 +203,14 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+/* Tables */
+
+.table {
+    border: 1px solid black;
+    th, td {
+        padding: 15px;
+        border: 1px solid black;
+    }
+    
+}
