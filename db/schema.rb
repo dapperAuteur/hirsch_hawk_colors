@@ -20,6 +20,27 @@ ActiveRecord::Schema.define(version: 20160609003554) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+<<<<<<< HEAD
+=======
+
+  create_table "students", force: :cascade do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "my_teacher"
+    t.string   "grade"
+    t.integer  "student_id"
+    t.string   "email_address"
+    t.date     "dob"
+    t.string   "gender"
+    t.date     "entry_date"
+    t.float    "age"
+    t.string   "images"
+    t.boolean  "current_student"
+    t.text     "my_allergies"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+>>>>>>> user_import
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

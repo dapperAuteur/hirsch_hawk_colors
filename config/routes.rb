@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  
+
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
 
-  root                   'static_pages#home'
+  #root                   'static_pages#home'
 
   get 'help',       to:  'static_pages#help'
   
@@ -27,6 +28,12 @@ Rails.application.routes.draw do
   resources             :password_resets,     only: [:new, :create, :edit, :update]
   
   resources             :events
+  
+  resources   :students do
+    collection { post :import }
+  end
+  
+  root to: 'students#present'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
