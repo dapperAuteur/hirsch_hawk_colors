@@ -8,7 +8,20 @@
         </section>
     </aside>
 </div>
-            
+
+<%= will_paginate %>            
+
 <p>Name: <%= @event.name %>, Classroom: <%= @event.classroom %>, Meal: <%= @event.meal %></p>
+<p><%= @event.total_present %></p>
 <p>Created At: <%= @event.created_at %></p>
 <p>Updated At: <%= @event.updated_at %></p>
+<%# @event_attendance_records.each do |ear| %>
+<p><%#= ear %></p>
+
+<%# end %>
+
+<% @event.event_attendance_records.each do |ear| %>
+<p><%= ear %></p>
+<% end %>
+
+<%= will_paginate %>

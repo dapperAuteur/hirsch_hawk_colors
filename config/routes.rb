@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   
   #get 'students#index', to:   'students#present'
   
-  resources             :event_attendance_record
+  resources             :event_attendance_records
   # get 'event_attendance_record/index'
 
   # get 'event_attendance_record/show'

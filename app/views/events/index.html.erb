@@ -1,6 +1,10 @@
 <% provide(:title, 'All Events') %>
 <h1>All Events</h1>
 
+<button>
+<%= link_to "do_attendance_records", event_attendance_records_path, method: :do_attendance_records, data: { confirm: "You sure?" } %>
+</button>
+
 <%= will_paginate %>
 
 <ul class="events">

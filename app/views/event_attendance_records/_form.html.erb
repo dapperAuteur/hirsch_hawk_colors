@@ -1,0 +1,20 @@
+<%= form_for(@event_attendance_record) do |f| %>
+    <%#= render 'shared/error_messages' %>
+    
+    <%#= f.label :name %> Add Event Name & ID (don't allow id to change)<br />
+    <%#= f.text_field :name, class: 'form_control' %>
+    
+    <%= f.label :present %>
+    <%= f.check_box :present, class: 'form_control' %>
+    
+    <%= f.label :brought_lunch %>
+    <%= f.check_box :brought_lunch, class: 'form_control' %>
+    
+    <%= f.label :fed %>
+    <%= f.check_box :fed, class: 'form_control' %>
+    
+    <%= f.label :milk_only %>
+    <%= f.check_box :milk_only, class: 'form_control' %>
+    
+    <%= f.submit "Save changes", class: "btn btn-primary" %>
+<% end %>

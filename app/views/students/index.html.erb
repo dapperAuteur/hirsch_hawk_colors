@@ -1,5 +1,7 @@
 <h1>Students List</h1>
 
+<%= will_paginate %>
+
 <h2>Import Students</h2>
 
 <%= form_tag import_students_path, multipart: true do %>
@@ -10,5 +12,4 @@
 <ul class="students">
         <%= render @students %>
 </ul>
-
-<%#= @student.fname %>, <%#= @student.lname %>
+<%= will_paginate %>

@@ -1,0 +1,39 @@
+<li>
+    <p><%= link_to event_attendance_record.id, event_attendance_record %></p>
+    <p><%#= event_attendance_record.student.fname %></p>
+    <p><%#= event_attendance_record.student.lname %></p>
+    <p><%#= event_attendance_record.student.my_teacher %></p>
+    <%# if current_user.admin? %>
+        | <%#= link_to "delete", event_attendance_record, method: :delete, data: { confirm: "You sure?" } %>
+    <%# end %>
+</li>
+<div class="table table-striped table-bordered">
+    <table>
+      <thead class="thead">
+        <tr>
+          <th>Student First Name</th>
+          <th>Student Last Name</th>
+          <th>Allergies</th>
+          <th>Teacher</th>
+          <th>Present</th>
+          <th>Brought Lunch</th>
+          <th>Fed</th>
+          <th>Milk Only</th>
+          <th>Edit</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+    
+      <tr>
+        <td><%= event_attendance_record.student.fname %></td>
+        <td><%= event_attendance_record.student.lname %></td>
+        <td><%= event_attendance_record.student.my_allergies %></td>
+        <td><%= event_attendance_record.student.my_teacher %></td>
+        <td><%= event_attendance_record.present %></td>
+        <td><%= event_attendance_record.brought_lunch %></td>
+        <td><%= event_attendance_record.fed %></td>
+        <td><%= event_attendance_record.milk_only %></td>
+        <td><%= link_to 'Edit', edit_event_attendance_record_path(@event_attendance_record) %></td>
+      </tr>
+    </table>
+</div>

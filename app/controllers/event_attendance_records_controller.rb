@@ -1,4 +1,4 @@
-class EventAttendanceRecordController < ApplicationController
+class EventAttendanceRecordsController < ApplicationController
   before_action :logged_in_user
   
   def new
@@ -6,6 +6,7 @@ class EventAttendanceRecordController < ApplicationController
   end
   
   def create
+    
   end
   
   def index
@@ -44,5 +45,9 @@ class EventAttendanceRecordController < ApplicationController
   
     def event_attendance_record_params
       params.require(:event_attendance_record).permit(:id)
+    end
+    
+    def student_params
+      params.require(:student).permit(:id, :fname, :lname, :my_teacher, :grade)
     end
 end

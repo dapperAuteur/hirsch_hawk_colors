@@ -14,6 +14,8 @@ class EventsController < ApplicationController
     
     def show
         @event = Event.find(params[:id])
+        @event_attendance_records = @event.event_attendance_records
+        @events = Event.paginate(page: params[:page])
     end
     
     def edit
