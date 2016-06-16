@@ -36,7 +36,11 @@ Rails.application.routes.draw do
   
   #get 'students#index', to:   'students#present'
   
-  resources             :event_attendance_records
+  resources             :event_attendance_records do
+    member do
+      patch 'present_toggle'
+    end
+  end
   # get 'event_attendance_record/index'
 
   # get 'event_attendance_record/show'

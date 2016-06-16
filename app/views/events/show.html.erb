@@ -21,7 +21,7 @@
 <%# end %>
 
 <% @event.event_attendance_records.each do |ear| %>
-<p><%= ear %></p>
+<p><%= render ear %></p>
 <% end %>
 
 <%= will_paginate %>

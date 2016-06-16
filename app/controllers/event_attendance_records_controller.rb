@@ -30,6 +30,24 @@ class EventAttendanceRecordsController < ApplicationController
       render 'edit'
     end
   end
+  
+  def present_toggle
+    ear = EventAttendanceRecord.find(params[:id])
+    ear.present_toggle
+    redirect_to ear.event
+  end
+  
+  def fed_toggle
+    
+  end
+  
+  def milk_only_toggle
+    
+  end
+  
+  def brought_lunch_toggle
+    
+  end
     
   
   private
