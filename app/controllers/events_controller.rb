@@ -16,9 +16,9 @@ class EventsController < ApplicationController
     end
     
     def show
+        @events = Event.paginate(page: params[:page])
         @event = Event.find(params[:id])
         @event_attendance_records = @event.event_attendance_records
-        @events = Event.paginate(page: params[:page])
     end
     
     def edit
@@ -48,7 +48,4 @@ class EventsController < ApplicationController
         def event_params
             params.require(:event).permit(:name, :classroom, :meal)
         end
-        
-                
-
 end

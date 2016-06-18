@@ -9,16 +9,30 @@
     </aside>
 </div>
 
-<%= will_paginate %>            
 
 <p>Name: <%= @event.name %>, Classroom: <%= @event.classroom %>, Meal: <%= @event.meal %></p>
-<p><%= @event.total_present %></p>
 <p>Created At: <%= @event.created_at %></p>
 <p>Updated At: <%= @event.updated_at %></p>
-<%# @event_attendance_records.each do |ear| %>
-<p><%#= ear %></p>
+<%= will_paginate %>            
 
-<%# end %>
+<div class="table table-striped table-bordered">
+    <table>
+      <thead class="thead">
+        <tr>
+          <th>Student First Name</th>
+          <th>Student Last Name</th>
+          <th>Allergies</th>
+          <th>Teacher</th>
+          <th>Present</th>
+          <th>Brought Lunch</th>
+          <th>Fed</th>
+          <th>Milk Only</th>
+          <th>Edit</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+    </table>
+</div>
 
 <% @event.event_attendance_records.each do |ear| %>
 <p><%= render ear %></p>

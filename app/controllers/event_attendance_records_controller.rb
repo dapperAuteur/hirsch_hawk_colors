@@ -22,11 +22,15 @@ class EventAttendanceRecordsController < ApplicationController
   end
   
   def update
+    puts 'in update'
     @event_attendance_record = EventAttendanceRecord.find(params[:id])
     if @event_attendance_record.update_attributes(event_attendance_record_params)
+      puts 'success'
       flash[:success] = "Event Attendance Record updated"
       redirect_to @event_attendance_record
     else
+      puts 'errors'
+      puts event_attendance_record.errors
       render 'edit'
     end
   end
@@ -37,16 +41,24 @@ class EventAttendanceRecordsController < ApplicationController
     redirect_to ear.event
   end
   
+  def 
+  
   def fed_toggle
-    
+    ear = EventAttendanceRecord.find(params[:id])
+    ear.fed_toggle
+    redirect_to ear.event
   end
   
   def milk_only_toggle
-    
+    ear = EventAttendanceRecord.find(params[:id])
+    ear.milk_only_toggle
+    redirect_to ear.event
   end
   
   def brought_lunch_toggle
-    
+    ear = EventAttendanceRecord.find(params[:id])
+    ear.brought_lunch_toggle
+    redirect_to ear.event
   end
     
   
@@ -62,10 +74,10 @@ class EventAttendanceRecordsController < ApplicationController
     end
   
     def event_attendance_record_params
-      params.require(:event_attendance_record).permit(:id)
+      params.require(:event_attendance_record).permit(:present, :brought_lunch, :fed, :milk_only)
     end
     
     def student_params
-      params.require(:student).permit(:id, :fname, :lname, :my_teacher, :grade)
+      params.require(:student).permit(:fname, :lname, :my_teacher, :grade)
     end
 end

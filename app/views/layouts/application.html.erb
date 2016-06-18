@@ -1,21 +1,40 @@
+<!--lets browser or document reader know what type of document this is and therefore how to use the file-->
+<!--everything on this page is repeated on every page of the site-->
 <!DOCTYPE html>
+<!--html tag that contains all html content-->
 <html>
+  <!--head tag contains works as the header of the page-->
   <head>
+    <!--ruby method to display the title of current page, takes a function yield that takes the symbol :title as a parameter and returns the page title-->
     <title><%= full_title(yield(:title)) %></title>
+    <!--returns a stylelized link tag for the sources specified as parameters, file name extension is optional '.css'-->
+    <!--parameters built-in Rails methods, (method invocation with missing parentheses, symbols, and hashes) include name of CSS file 'application', hash and a function-->
+    <!--data-turbolinks-track makes following web application links faster-->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <!--returns an HTML script tag for each of the sources provided, adds '.js' file extension on files given, extensions are optional-->
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <!--this tag prevents cross-site-request-forgery, a type of malicious web attack-->
     <%= csrf_meta_tags %>
+    <!--renders the shim partial, contains IE9 instructions-->
     <%= render 'layouts/shim' %>
   </head>
   <body>
+    <!--renders the header partial, contains menu, links, and branding-->
     <%= render 'layouts/header' %>
+    <!--container for body of application page-->
     <div class="container">
+      <!--method that displays flash communications to user; warnings and alers and successes-->
       <% flash.each do |message_type, message| %>
         <%#= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <!--displays message-->
         <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <!--end of method-->
       <% end %>
+      <!--responsible for displaying the contents of each page-->
       <%= yield %>
+      <!--displays footer of site on every page-->
       <%= render 'layouts/footer' %>
+      <!--function that adds debugger info at the bottom each page in the developer environment-->
       <%= debug(params) if Rails.env.development? %>
     </div>
   </body>

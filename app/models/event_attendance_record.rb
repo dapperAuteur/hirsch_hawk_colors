@@ -8,15 +8,18 @@ class EventAttendanceRecord < ActiveRecord::Base
   end
   
   def fed_toggle
-    
+    self.fed = !self.fed
+    self.save
   end
   
   def milk_only_toggle
-    
+    self.milk_only = !self.milk_only
+    self.save
   end
   
   def brought_lunch_toggle
-    
+    self.brought_lunch = !self.brought_lunch
+    self.save
   end
   
   private

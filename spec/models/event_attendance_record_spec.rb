@@ -21,7 +21,7 @@ RSpec.describe EventAttendanceRecord do
     end
     
     it 'has brought_lunch set to false' do
-        expect(ear.brought_lunch).to eq(false)
+        expect(ear.brought_lunch).to_not eq(nil)
         expect(ear.brought_lunch).to eq(false)
     end
     
@@ -35,19 +35,25 @@ RSpec.describe EventAttendanceRecord do
     
     describe '#fed_toggle' do
         it 'changes status to true when false and false when true' do
-            
+            start = ear.fed
+            ear.fed_toggle
+            expect(ear.fed).to eq(!start)
         end
     end
     
     describe '#milk_only_toggle' do
         it 'changes status to true when false and false when true' do
-            
+            start = ear.milk_only
+            ear.milk_only_toggle
+            expect(ear.milk_only).to eq(!start)
         end
     end
     
     describe '#brought_lunch_toggle' do
         it 'changes status to true when false and false when true' do
-            
+            start = ear.brought_lunch
+            ear.brought_lunch_toggle
+            expect(ear.brought_lunch).to eq(!start)
         end
     end
         

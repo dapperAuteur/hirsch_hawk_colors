@@ -40,6 +40,18 @@ Rails.application.routes.draw do
     member do
       patch 'present_toggle'
     end
+    
+    member do
+      patch 'fed_toggle'
+    end
+    
+    member do
+      patch 'milk_only_toggle'
+    end
+    
+    member do
+      patch 'brought_lunch_toggle'
+    end
   end
   # get 'event_attendance_record/index'
 

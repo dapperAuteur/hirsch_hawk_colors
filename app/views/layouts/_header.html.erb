@@ -1,31 +1,63 @@
+<!--# This is the header partial.-->
+<!--# It contains all the menu items. That includes links, dropdown links, and site name link to homepage.-->
+
+<!--# .navbar is a simple wrapper for positioning navigation, branding, and other elements in a concise navigation header.-->
+<!--# .navbar-fixed-top locks the .navbar to the top of the page even when the screen scrolls to the bottom.-->
+<!--# .navbar-inverse flips the colors of the .navbar & text in the .navbar. -->
+<!--    # bkgd:text = black:white-->
 <header class="navbar navbar-fixed-top navbar-inverse">
+    <!--# .container provides a responsive fixed-width for the site, NOT nestable-->
     <div class="container">
+        <!--Partial created to display logo in upper left corner. Not using it because it causes the text to dropdown and makes header thicker. Would like to have logo to the left of text on same line. Must put this in same component as text or use z-index to place on top of text component-->
         <%#= render 'layouts/logo_placement' %>
+        <!--# .container provides a responsive fixed-width, NOT nestable, is this container nested inside the parent div?-->
         <div class="container">
-            
+            <!--# link_to provides a link to root_path (homepage), the link is called 'hirsch hawks colors'-->
+            <!--# the third parameter is a hash but may be any block of code-->
+            <!--# link_to(name = nil, options = nil, html_options = nil, &block)-->
             <%= link_to "hirsch hawks colors", root_path, id: "logo" %>
             <nav>
+<!--# .nav is the base .nav component. It's used to allow rolling out your own style and extending the .nav-->
+<!--# .navbar-nav is a subcomponent that provides support for .navbar and it allows for support components to be added to it; ie: dropdown-->
+<!--# .navbar-right adds a CSS float to the right, alignment attribute for links, buttons, forms, and text-->
                 <ul class="nav navbar-nav navbar-right">
+                    <!--# link_to root_path named "Home"-->
                     <li><%= link_to "Home",    root_path %></li>
+                    <!--# link_to help_path named "Help"-->
                     <li><%= link_to "Help",    help_path %></li>
+                    <!--# if statement checking User logged_in?-->
                     <% if logged_in? %>
+                        <!--# true show link_to users_path named "Users", shows all users-->
                         <li><%= link_to "Users", users_path %></li>
+                          <!--# true show link_to students_path named "Student List", shows all students-->
                         <li><%= link_to "Student List", students_path %></li>
+                          <!--# true show link_to events_path named "Event List, shows all events-->
                         <li><%= link_to "Event List", events_path %></li>
+                          <!--# true show link_to EAR named "EAR List", shows list of all EARs-->
                         <li><%= link_to "Event Attendance Record List", event_attendance_records_path %></li>
+                        <!--# adds dropdown attribute to this component, toggleable contextual menu for displaying lists of links, made interactive with JS, contains a list of items of everything from line 38 to line 48-->
                         <li class="dropdown">
+                            <!--# .dropdown-toggle changes when clicked-->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+                            <!--# .dropdown-menu-->
                             <ul class="dropdown-menu">
+                                <!--# true show link_to "Profile" of current_user-->
                               <li><%= link_to "Profile", current_user %></li>
+                              <!--# true show link_to edit_user_path "Settings" of current_user-->
+                              <!--this link includes a method edit_user_path() that takes one parameter current_user-->
                               <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                              <!--# .divider adds a line between the previous list item and the next list item-->
                               <li class="divider"></li>
                               <li>
+                                  <!--# link_to logout_path named "Log out", has a method: "delete" that deletes the user session-->
                                 <%= link_to "Log out", logout_path, method: "delete" %>
                               </li>
                             </ul>
                         </li>
                     <% else %>
+                        <!--# false show link_to login_path named "Log in"-->
                         <li><%= link_to "Log in", login_path %></li>
+                        <!--# end the if else statement-->
                     <% end %>
                 </ul>
             </nav>

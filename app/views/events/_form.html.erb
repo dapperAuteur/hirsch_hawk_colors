@@ -5,10 +5,10 @@
     <%= f.text_field :name, class: 'form_control' %>
     
     <%= f.label :classroom %>
-    <%= f.check_box :classroom, class: 'form_control' %>
+    <%= f.radio_button :classroom, class: 'form_control' %>
     
     <%= f.label :meal %>
-    <%= f.check_box :meal, class: 'form_control' %>
+    <%= f.radio_button :meal, class: 'form_control' %>
     
     <%= f.submit "Save changes", class: "btn btn-primary" %>
 <% end %>
